@@ -1,0 +1,4 @@
+connected_marker_link: "ar_marker_link"
+ar_marker_link: "ar_marker_4"
+target_link: "head_camera"
+disconnected_target_link: "dummy_link"
