@@ -9,5 +9,7 @@
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>usb_cam</depend>
+  <depend>astra_launch</depend>
 
 </package>

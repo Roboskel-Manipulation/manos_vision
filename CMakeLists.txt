@@ -3,7 +3,9 @@ project(manos_vision)
 
 add_compile_options(-std=c++11)
 
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+    usb_cam
+    astra_launch)
 
 catkin_package()
 
