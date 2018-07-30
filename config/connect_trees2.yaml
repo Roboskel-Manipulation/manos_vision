@@ -1,4 +1,4 @@
 connected_marker_link: "ar_marker_link"
 ar_marker_link: "ar_marker_4"
-target_link: "camera_rgb_optical_frame"
+target_link: "camera_link"
 disconnected_target_link: "dummy_link"
