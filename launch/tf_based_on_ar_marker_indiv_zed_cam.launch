@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="camera" default="camera" />
+
+    <arg name="camera" default="camera" />
 
     <node pkg="tf" type="static_transform_publisher" name="dummy_tf_publisher"
-        args="0 0 0 0 0 0 /dummy_link /camera_link 100" />
+        args="0 0 0 0 0 0 /dummy_link /zed_left_camera_frame 100" />
 
     <node pkg="tf" type="static_transform_publisher" name="static_marker_link_publisher"
         args="-0.406 0.406 0 0 0 0 /base_link /ar_marker_link 100" />
@@ -11,9 +12,9 @@
     <arg name="marker_size" default="14.4" />
     <arg name="max_new_marker_error" default="0.08" />
     <arg name="max_track_error" default="0.2" />
-    <arg name="cam_image_topic" default="/camera/rgb/image_raw" />
-    <arg name="cam_info_topic" default="/camera/rgb/camera_info" />
-    <arg name="output_frame" default="/camera_link" />
+    <arg name="cam_image_topic" default="/zed/rgb/image_rect_color" />
+    <arg name="cam_info_topic" default="/zed/rgb/camera_info" />
+    <arg name="output_frame" default="/zed_left_camera_frame" />
 
     <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
         <param name="marker_size"           type="double" value="$(arg marker_size)" />
@@ -25,9 +26,7 @@
         <remap from="camera_info"   to="$(arg cam_info_topic)" />
     </node>
 
-    <include file="$(find manos_vision)/launch/asus_xtion.launch"/>
-
     <node pkg="tf_based_on_ar_marker" type="tf_based_on_ar_marker.py" respawn="false" name="tf_based_on_ar_marker" output="screen">
-        <rosparam file="$(find manos_vision)/config/connect_trees2.yaml" command="load" />
+        <rosparam file="$(find manos_vision)/config/connect_trees.yaml" command="load" />
     </node>
 </launch>

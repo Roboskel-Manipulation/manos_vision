@@ -1,4 +1,4 @@
 connected_marker_link: "ar_marker_link"
 ar_marker_link: "ar_marker_4"
-target_link: "head_camera"
+target_link: "zed_left_camera_frame"
 disconnected_target_link: "dummy_link"
